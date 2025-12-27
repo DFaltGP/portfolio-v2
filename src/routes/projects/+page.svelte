@@ -1,56 +1,67 @@
 <script>
   import { onMount } from "svelte";
   import { fade, fly } from "svelte/transition";
-  import { cubicOut } from "svelte/easing";
   import Icon from "@iconify/svelte";
 
   let mounted = false;
   let activeFilter = "all";
   let searchQuery = "";
 
-  // Dados atualizados e refinados
   const projects = [
     {
-      id: 1,
+      id: "fiscal-ingestion",
       title: "Fiscal Data Ingestion Engine",
       description:
-        "Sistema de alta performance para processamento fiscal (NFCom/SPED). Otimizado para volumes massivos de dados.",
+        "High-performance fiscal processing system (NFCom/SPED). Optimized for big data and massive throughput.",
       category: "backend",
       tags: [".NET 8", "SQL Server", "Performance"],
-      status: "completed", // completed | in-progress
-      access: "private", // private | public
+      status: "completed",
+      access: "private",
       highlights: [
-        "20x mais rápido que o legado",
-        "Conformidade SPED",
+        "20x faster than legacy",
+        "According to SPED",
         "T-SQL Optimization",
       ],
       image: "mdi:file-chart",
       link: null,
     },
     {
-      id: 2,
-      title: "Enterprise AI Portal",
+      id: "ai-portal",
+      title: "Enterprise AI Employee Portal",
       description:
-        "Migração de legado para Blazor Server com integração de IA Generativa para suporte ao cliente.",
+        "Featuring Generative AI integration for automated customer support and a full employee portal.",
       category: "fullstack",
       tags: ["Blazor", ".NET 8", "OpenAI", "Docker"],
-      status: "completed",
+      status: "in progress",
       access: "private",
       highlights: [
-        "Modernização de Legado",
-        "Arquitetura Containerizada",
+        "Stack Modernization",
+        "Container-based Architecture",
         "RAG Integration",
       ],
       image: "mdi:robot",
       link: null,
     },
     {
-      id: 3,
+      id: "jettax-service",
+      title: "Automated Fiscal Search",
+      description:
+        "Resilient integration with Jettax API for fetching and processing fiscal documents.",
+      category: "backend",
+      tags: ["C#", ".NET", "Integration", "Resilience"],
+      status: "completed",
+      access: "private",
+      highlights: ["Error Handling", "Automation", "Background Jobs"],
+      image: "mdi:cloud-search",
+      link: null,
+    },
+    {
+      id: "cache-aside",
       title: "Rust Cache-Aside Architecture",
       description:
-        "Padrão de cache distribuído focado em consistência eventual e baixa latência para PostgreSQL.",
+        "Distributed cache pattern focused on eventual consistency and low latency for PostgreSQL.",
       category: "backend",
-      tags: ["Rust", "Redis", "PostgreSQL", "Tokio"],
+      tags: ["Rust", "Redis", "PostgreSQL", "Docker"],
       status: "completed",
       access: "public",
       highlights: [
@@ -62,10 +73,10 @@
       link: "https://github.com/guilherme/rust-cache-aside",
     },
     {
-      id: 4,
+      id: "log-analyzer",
       title: "Log Analyzer CLI",
       description:
-        "Ferramenta CLI para análise de streams de logs massivos (GBs) com baixo consumo de memória.",
+        "CLI tool for analyzing massive log streams (GBs) with low memory footprint.",
       category: "tooling",
       tags: ["Rust", "CLI", "Systems Programming"],
       status: "completed",
@@ -75,30 +86,17 @@
       link: "https://github.com/guilherme/log-analyzer-cli",
     },
     {
-      id: 5,
+      id: "polling-api",
       title: "Real-Time Polling API",
       description:
-        "API de votação utilizando WebSockets e Pub/Sub para alta concorrência.",
+        "Voting API utilizing WebSockets and Pub/Sub for high concurrency.",
       category: "backend",
       tags: ["Node.js", "TypeScript", "Redis", "WS"],
       status: "completed",
       access: "public",
       highlights: ["Event-Driven", "Scalable", "Real-time"],
       image: "mdi:vote",
-      link: "https://github.com/guilherme/realtime-voting",
-    },
-    {
-      id: 6,
-      title: "Automated Fiscal Search",
-      description:
-        "Integração resiliente com API Jettax para busca e processamento de documentos fiscais.",
-      category: "backend",
-      tags: ["C#", ".NET", "Integration", "Resilience"],
-      status: "completed",
-      access: "private",
-      highlights: ["Error Handling", "Automação", "Background Jobs"],
-      image: "mdi:cloud-search",
-      link: null,
+      link: "https://github.com/DFaltGP/node_polls_api",
     },
   ];
 
@@ -183,6 +181,7 @@
         {#each filteredProjects as project, i (project.id)}
           <div
             in:fly={{ y: 30, duration: 500, delay: 300 + i * 100 }}
+            id={project.id}
             class="group relative bg-[#252526]/40 border border-zinc-800 rounded-xl p-6 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl backdrop-blur-sm flex flex-col h-full"
           >
             <div class="flex justify-between items-start mb-4">
@@ -206,7 +205,7 @@
             >
               {project.title}
             </h3>
-            <p class="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow">
+            <p class="text-zinc-400 text-sm leading-relaxed mb-6 grow">
               {project.description}
             </p>
 

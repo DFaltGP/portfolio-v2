@@ -2,6 +2,7 @@
   import { writable } from "svelte/store";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
 
   export let isOpen = false;
 
@@ -21,7 +22,7 @@
       name: "portfolio",
       is_folder: true,
       is_open: true,
-      icon: "vscode-icons:folder-type-vscode-opened",
+      icon: "vscode-icons:folder-type-zed-opened",
       files: [
         {
           nesting_level: 1,
@@ -42,28 +43,49 @@
           name: "projects",
           is_folder: true,
           is_open: false,
-          icon: "vscode-icons:folder-type-project",
+          icon: "vscode-icons:folder-type-zed",
           files: [
             {
               nesting_level: 2,
-              name: "ecommerce-api.rs",
+              name: "fiscal-ingestion.cs",
               is_folder: false,
-              link: "/projects",
+              link: "/projects#fiscal-ingestion",
+              icon: "vscode-icons:file-type-csharp",
+            },
+            {
+              nesting_level: 2,
+              name: "ai-portal.razor",
+              is_folder: false,
+              link: "/projects#ai-portal",
+              icon: "vscode-icons:file-type-razor",
+            },
+            {
+              nesting_level: 2,
+              name: "cache-aside.rs",
+              is_folder: false,
+              link: "/projects#cache-aside",
               icon: "vscode-icons:file-type-rust",
             },
             {
               nesting_level: 2,
-              name: "kanban-board.tsx",
+              name: "log-analyzer.rs",
               is_folder: false,
-              link: "/projects",
-              icon: "vscode-icons:file-type-reactts",
+              link: "/projects#log-analyzer",
+              icon: "vscode-icons:file-type-rust",
             },
             {
               nesting_level: 2,
-              name: "finance-app.go",
+              name: "polling-api.ts",
               is_folder: false,
-              link: "/projects",
-              icon: "vscode-icons:file-type-go",
+              link: "/projects#polling-api",
+              icon: "vscode-icons:file-type-typescript",
+            },
+            {
+              nesting_level: 2,
+              name: "jettax-service.cs",
+              is_folder: false,
+              link: "/projects#jettax-service",
+              icon: "vscode-icons:file-type-csharp",
             },
           ],
         },
@@ -76,43 +98,31 @@
         },
         {
           nesting_level: 1,
-          name: "contact.css",
+          name: "contact.sh",
           is_folder: false,
           link: "/contact",
-          icon: "vscode-icons:file-type-css",
+          icon: "vscode-icons:file-type-shell",
         },
       ],
     },
   ]);
 
-  function toggleFolder(item: any) {
-    if (item.is_folder && item.files && item.files.length > 0) {
+  function toggleFolder(item: ProjectFile) {
+    if (!item.is_folder) return;
+
+    filesStore.update((currentFiles) => {
       item.is_open = !item.is_open;
 
-      // Update icon based on open state
-      if (item.name === "portfolio") {
-        item.icon = item.is_open
-          ? "vscode-icons:folder-type-vscode-opened"
-          : "vscode-icons:folder-type-vscode";
-      } else if (item.name === "projects") {
-        item.icon = item.is_open
-          ? "vscode-icons:folder-type-project-opened"
-          : "vscode-icons:folder-type-project";
-      }
+      const baseIcon = "vscode-icons:folder-type-zed";
+      item.icon = item.is_open ? `${baseIcon}-opened` : baseIcon;
 
-      $filesStore = $filesStore;
-    }
+      return currentFiles;
+    });
   }
 
-  $: currentPath = $page.url.pathname;
-
-  function isActive(link: string) {
-    return currentPath === link;
-  }
-
-  function renderTree(items: ProjectFile[], level = 0): any {
-    return items;
-  }
+  $: isActive = (link: string) => {
+    return $page.url.pathname === link;
+  };
 
   let stats = {
     files: 8,
