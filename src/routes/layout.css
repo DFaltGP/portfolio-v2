@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-source-code: "Source Code Pro", monospace;
   --color-primary: #f15025;
   --color-background-white: #ffffff;
   --color-zinc-light: #e6e8e6;

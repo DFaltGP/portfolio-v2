@@ -73,12 +73,13 @@
         >
           <span class="relative flex h-2 w-2">
             <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-500 opacity-75"
             ></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"
             ></span>
           </span>
-          Available for opportunities
+          Waiting you text me
         </div>
 
         <div class="space-y-4">

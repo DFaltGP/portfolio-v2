@@ -3,6 +3,7 @@ export interface SkillIcon {
   skillName: string;
   category: "Frontend" | "Backend" | "Fullstack" | "DevOps";
   yearsOfExperience: number;
+  level: number;
   description: string;
   howIUse: string;
   technicalTerms: string;
@@ -16,6 +17,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "TypeScript",
     category: "Fullstack",
     yearsOfExperience: 3,
+    level: 90,
     description:
       "A strongly typed superset of JavaScript that adds static typing and enhanced IDE support for building robust applications.",
     howIUse:
@@ -35,6 +37,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Svelte",
     category: "Frontend",
     yearsOfExperience: 2,
+    level: 90,
     description:
       "A modern JavaScript framework that compiles components into highly efficient vanilla JavaScript at build time, resulting in faster runtime performance.",
     howIUse:
@@ -54,6 +57,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "React JS",
     category: "Frontend",
     yearsOfExperience: 4,
+    level: 90,
     description:
       "A powerful JavaScript library for building user interfaces with reusable components and efficient rendering through virtual DOM.",
     howIUse:
@@ -73,6 +77,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Tailwind CSS",
     category: "Frontend",
     yearsOfExperience: 3,
+    level: 95,
     description:
       "A utility-first CSS framework that enables rapid UI development through pre-built classes without writing custom CSS.",
     howIUse:
@@ -88,6 +93,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Node JS",
     category: "Backend",
     yearsOfExperience: 4,
+    level: 85,
     description:
       "A JavaScript runtime built on Chrome's V8 engine that allows JavaScript to run on servers, enabling full-stack JavaScript development.",
     howIUse:
@@ -107,6 +113,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Rust",
     category: "Backend",
     yearsOfExperience: 2,
+    level: 90,
     description:
       "A systems programming language focused on safety, speed, and concurrency without garbage collection.",
     howIUse:
@@ -122,6 +129,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "C#",
     category: "Backend",
     yearsOfExperience: 3,
+    level: 85,
     description:
       "A modern, object-oriented programming language developed by Microsoft, widely used for enterprise applications and game development.",
     howIUse:
@@ -141,6 +149,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: ".NET",
     category: "Backend",
     yearsOfExperience: 3,
+    level: 85,
     description:
       "A free, cross-platform, open-source developer platform for building many different types of applications.",
     howIUse:
@@ -160,6 +169,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "PostgreSQL",
     category: "Backend",
     yearsOfExperience: 4,
+    level: 90,
     description:
       "A powerful, open-source object-relational database system with a strong reputation for reliability, feature robustness, and performance.",
     howIUse:
@@ -179,6 +189,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Redis",
     category: "Backend",
     yearsOfExperience: 2,
+    level: 80,
     description:
       "An in-memory data structure store commonly used as a database, cache, and message broker for high-performance applications.",
     howIUse:
@@ -198,6 +209,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Docker",
     category: "DevOps",
     yearsOfExperience: 3,
+    level: 90,
     description:
       "A platform for developing, shipping, and running applications in containers, ensuring consistency across different environments.",
     howIUse:
@@ -217,6 +229,7 @@ export const skillsIcons: SkillIcon[] = [
     skillName: "Git",
     category: "DevOps",
     yearsOfExperience: 4,
+    level: 80,
     description:
       "A distributed version control system for tracking changes in source code during software development.",
     howIUse:

@@ -2,120 +2,121 @@
   import { onMount } from "svelte";
   import { fade, fly } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
-  import Icon from "@iconify/svelte";
   import { skillsIcons } from "$lib";
 
   const developer = {
     name: "Guilherme Pacheco",
-    role: "Full-Stack Developer",
-    passion: "Building awesome things & Solving Problems.",
+    role: "Mid-Level Full-Stack Engineer",
+    summary:
+      "Architecting scalable web solutions and intuitive digital experiences.",
   };
 
-  let displayText = "";
-  let i = 0;
   let mounted = false;
 
   onMount(() => {
     mounted = true;
-    const typeWriter = setInterval(() => {
-      if (i < developer.passion.length) {
-        displayText += developer.passion.charAt(i);
-        i++;
-      } else {
-        clearInterval(typeWriter);
-      }
-    }, 30);
   });
 </script>
 
 <div
-  class="flex flex-col justify-center min-h-[90vh] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+  class="relative flex flex-col justify-center min-h-[90vh] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    <div class="lg:col-span-7 space-y-8 order-2 lg:order-1 pt-8 lg:pt-0">
+  <div
+    class="absolute top-[-20%] right-[0%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"
+  ></div>
+
+  <div
+    class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10"
+  >
+    <div class="lg:col-span-7 space-y-10 order-2 lg:order-1 pt-8 lg:pt-0">
       {#if mounted}
         <div
-          in:fly={{ y: 20, duration: 600, delay: 100, easing: cubicOut }}
-          class="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono font-semibold shadow-[0_0_15px_rgba(241,80,37,0.15)] backdrop-blur-sm"
+          in:fly={{ y: 20, duration: 800, delay: 0, easing: cubicOut }}
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-mono text-zinc-300 w-fit"
         >
-          <span class="relative flex h-2 w-2 mr-2">
+          <span class="relative flex h-2 w-2">
             <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
             ></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
             ></span>
           </span>
-          Open to work
+          Available for opportunities & freelances
         </div>
 
-        <div
-          in:fly={{ y: 20, duration: 600, delay: 200, easing: cubicOut }}
-          class="space-y-4"
-        >
+        <div class="space-y-6">
           <h1
-            class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight"
+            in:fly={{ y: 30, duration: 800, delay: 100, easing: cubicOut }}
+            class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9]"
           >
-            Hello, I'm <br />
-            <span
-              class="text-transparent bg-clip-text bg-linear-to-r from-primary via-orange-400 to-orange-300"
-            >
-              {developer.name}
-            </span>
+            Design.<br />
+            <span class="text-primary">Develop.</span><br />
+            Ship.
           </h1>
 
-          <div class="h-8 flex items-center">
+          <div
+            in:fly={{ y: 30, duration: 800, delay: 200, easing: cubicOut }}
+            class="max-w-xl"
+          >
             <p
-              class="text-lg sm:text-xl text-zinc-400 font-mono border-l-2 border-primary pl-3"
+              class="text-lg sm:text-xl text-zinc-400 leading-relaxed font-light"
             >
-              {displayText}<span class="animate-pulse text-primary">_</span>
+              I am <strong class="text-white font-medium"
+                >{developer.name}</strong
+              >. {developer.summary}
+              Focusing on performance, accessibility, and clean architecture.
             </p>
           </div>
         </div>
 
         <div
-          in:fly={{ y: 20, duration: 600, delay: 300, easing: cubicOut }}
-          class="flex flex-wrap gap-4 pt-2"
+          in:fly={{ y: 30, duration: 800, delay: 300, easing: cubicOut }}
+          class="flex flex-wrap gap-6 pt-4"
         >
           <a
             href="/projects"
-            class="px-8 py-3 rounded-lg bg-primary text-white font-bold hover:bg-[#d13f18] transition-all shadow-[0_0_20px_rgba(241,80,37,0.3)] hover:shadow-[0_0_30px_rgba(241,80,37,0.5)] active:scale-95 flex items-center gap-2"
+            class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary px-8 font-medium text-white"
           >
-            View Projects
+            <span>View Selected Work</span>
+            <div
+              class="absolute inset-0 -z-10 bg-linear-to-r from-primary/20 to-primary/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
           </a>
           <a
             href="/about"
-            class="px-8 py-3 rounded-lg border border-zinc-700 text-zinc-300 font-medium hover:border-primary/50 hover:text-white hover:bg-zinc-800 transition-all active:scale-95"
+            class="inline-flex h-12 items-center justify-center px-6 text-zinc-400 transition-colors hover:text-white"
           >
-            About Me
+            More about me &rarr;
           </a>
         </div>
 
         <div
-          in:fly={{ y: 20, duration: 600, delay: 400, easing: cubicOut }}
-          class="pt-6 border-t border-zinc-800/50"
+          in:fly={{ y: 30, duration: 800, delay: 400, easing: cubicOut }}
+          class="pt-8"
         >
           <p
-            class="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4"
+            class="text-xs uppercase tracking-widest text-zinc-600 font-semibold mb-6"
           >
-            Core Technologies
+            Technical Arsenal
           </p>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-x-6 gap-y-4">
             {#each skillsIcons as skill, idx}
               <div
-                in:fly={{ y: 10, duration: 300, delay: 500 + idx * 30 }}
-                class="group flex items-center gap-2 px-3 py-1.5 bg-[#252526] border border-zinc-700/50 rounded-md hover:border-primary/50 hover:bg-zinc-800 transition-colors cursor-default"
+                in:fly={{ y: 10, duration: 400, delay: 500 + idx * 20 }}
+                class="group flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-default"
               >
                 {#if skill.iconName}
                   <img
                     src={`/icons/${skill.iconName}.svg`}
                     alt={skill.skillName}
-                    class="w-5 h-5 grayscale group-hover:grayscale-0 transition-all duration-300"
+                    class="w-5 h-5 grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 {/if}
                 <span
-                  class="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors"
-                  >{skill.skillName}</span
+                  class="text-sm font-medium text-zinc-400 group-hover:text-zinc-200"
                 >
+                  {skill.skillName}
+                </span>
               </div>
             {/each}
           </div>
@@ -128,38 +129,56 @@
     >
       {#if mounted}
         <div
-          in:fly={{ x: 50, duration: 800, delay: 300, easing: cubicOut }}
-          class="w-full max-w-md relative rounded-xl bg-[#0d1117] border border-zinc-800 shadow-2xl overflow-hidden group hover:border-primary/30 transition-colors duration-500"
+          in:fly={{ x: 50, duration: 1000, delay: 300, easing: cubicOut }}
+          class="w-full max-w-sm relative"
         >
           <div
-            class="flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-zinc-800"
+            class="relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-zinc-800/60 backdrop-blur-xl p-8 shadow-2xl"
           >
-            <div class="flex gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-            </div>
-            <span class="text-xs text-zinc-500 font-mono"
-              >portfolio.config.ts</span
+            <div
+              class="flex justify-between items-start mb-8 border-b border-zinc-800 pb-6"
             >
-          </div>
+              <div>
+                <h3 class="text-white font-bold text-lg tracking-tight">
+                  {developer.name}
+                </h3>
+                <p class="text-zinc-500 text-sm font-mono">{developer.role}</p>
+              </div>
+              <div
+                class="h-8 w-8 rounded-full bg-zinc-800 flex items-center justify-center"
+              >
+                <span class="text-xs text-zinc-400">BR</span>
+              </div>
+            </div>
 
-          <div class="p-6 overflow-hidden">
-            <pre class="font-mono text-sm leading-relaxed text-zinc-300">
-<span class="text-primary">const</span> <span class="text-white">developer</span
-              > = <span class="text-yellow-300">{`{`}</span>
-  name: <span class="text-green-400">"{developer.name}"</span>,
-  role: <span class="text-green-400">"Full-Stack"</span>,
-  hardWorker: <span class="text-primary">true</span>,
-  quickLearner: <span class="text-primary">true</span>,
-  hirable: <span class="text-primary">true</span>,
-  location: <span class="text-green-400">"Brazil"</span>,
-  drink: <span class="text-green-400">"Coffee"</span>
-<span class="text-yellow-300">{`}`}</span>;</pre>
+            <div class="space-y-4 font-mono text-sm">
+              <div class="flex justify-between items-center text-zinc-400">
+                <span>Experience</span>
+                <span class="text-white">4+ Years</span>
+              </div>
+              <div class="flex justify-between items-center text-zinc-400">
+                <span>Focus</span>
+                <span class="text-white">Scalability</span>
+              </div>
+              <div class="flex justify-between items-center text-zinc-400">
+                <span>Stack Strategy</span>
+                <span class="text-white">TS / Rust / .NET</span>
+              </div>
+            </div>
+
+            <div
+              class="mt-8 pt-6 border-t border-zinc-800 flex items-center gap-3"
+            >
+              <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <span
+                class="text-xs text-primary font-medium tracking-wide uppercase"
+                >System Operational</span
+              >
+            </div>
           </div>
 
           <div
-            class="absolute inset-0 bg-linear-to-tr from-primary/5 to-transparent pointer-events-none"
+            class="absolute -inset-4 bg-gradient-to-tr from-zinc-800 to-transparent opacity-20 blur-xl -z-10 rounded-full"
           ></div>
         </div>
       {/if}
