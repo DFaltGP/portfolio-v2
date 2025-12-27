@@ -70,7 +70,7 @@
         "Thread Safety",
       ],
       image: "mdi:language-rust",
-      link: "https://github.com/guilherme/rust-cache-aside",
+      link: "https://github.com/DFaltGP/rust-cache-aside-template",
     },
     {
       id: "log-analyzer",
@@ -83,7 +83,7 @@
       access: "public",
       highlights: ["Stream-based I/O", "Memory Safe", "Cross-Platform"],
       image: "mdi:console-line",
-      link: "https://github.com/guilherme/log-analyzer-cli",
+      link: "https://github.com/DFaltGP/red-logster-cli",
     },
     {
       id: "polling-api",
