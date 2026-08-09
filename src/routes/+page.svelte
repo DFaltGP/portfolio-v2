@@ -31,7 +31,14 @@
 </script>
 
 <svelte:head>
-  <title>Guilherme Pacheco — Full-Stack Engineer</title>
+  <title>Guilherme Pacheco — Desenvolvedor .NET Pleno & Arquitetura Backend</title>
+  <meta name="description" content="Portfólio de Engenharia de Software com foco no ecossistema .NET, alta performance e microsserviços." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://guilhermepachecodev.netlify.app" />
+  <meta property="og:title" content="Guilherme Pacheco — Desenvolvedor .NET Pleno" />
+  <meta property="og:description" content="Engenharia backend de alta performance, arquitetura .NET e soluções escaláveis." />
+  <meta property="og:image" content="https://guilhermepachecodev.netlify.app/preview-banner.png" />
 </svelte:head>
 
 <div id="home" class="scroll-mt-16">
