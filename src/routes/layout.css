@@ -3,10 +3,12 @@
 
 @theme {
   --font-source-code: "Source Code Pro", monospace;
-  --color-primary: #f15025;
+  --color-primary: #e05d28;
+  --color-primary-hover: #c84c1b;
+  --color-dark: #121315;
+  --color-surface: #1a1b20;
+  --color-surface-border: #282a32;
+  --color-zinc-light: #f0f1f3;
+  --color-zinc-muted: #9eLine4a;
   --color-background-white: #ffffff;
-  --color-zinc-light: #e6e8e6;
-  --color-zinc-muted: #ced0ce;
-  --color-dark: #191919;
-  --color-primary-hover: #d1411b;
 }
